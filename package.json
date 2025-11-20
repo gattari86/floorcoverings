@@ -1,0 +1,24 @@
+{
+  "name": "fci-diagnostic-report",
+  "version": "1.0.0",
+  "description": "Floor Coverings International Houston Heights - Comprehensive Diagnostic Report by Poppy Marketing and Consulting",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 3000",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "vercel"
+  },
+  "keywords": [
+    "diagnostic report",
+    "flooring business",
+    "digital marketing",
+    "SEO",
+    "Houston"
+  ],
+  "author": "Poppy Marketing and Consulting",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gattari86/floorcoverings.git"
+  }
+}
