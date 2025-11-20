@@ -224,6 +224,14 @@
             text-align: center;
         }
 
+        /* OPTIMIZATION: Enhanced metric cards with icon display */
+        .metric-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            opacity: 0.95;
+            display: block;
+        }
+
         .metric .value {
             font-size: 2rem;
             font-weight: 700;
@@ -470,6 +478,11 @@
                 gap: var(--spacing-md);
             }
 
+            .advantages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+
             /* Roadmap vertical layout on mobile */
             .roadmap-item {
                 grid-template-columns: 1fr;
@@ -515,6 +528,11 @@
             .header .subtitle { font-size: 0.85rem; }
 
             .metric .value { font-size: 1.5rem; }
+
+            /* ENHANCEMENT: Stack advantages grid on small phones */
+            .advantages-grid {
+                grid-template-columns: 1fr;
+            }
 
             table {
                 font-size: 0.8rem;
@@ -568,6 +586,60 @@
             outline-offset: 2px;
         }
 
+        /* ========================================
+           TABLE ENHANCEMENTS: Icon styling for rows
+           ======================================== */
+        .table-icon {
+            color: var(--primary);
+            font-size: 1.3rem;
+            text-align: center;
+            width: 50px;
+            padding: 0.8rem !important;
+            font-weight: normal;
+        }
+
+        /* ========================================
+           ADVANTAGES GRID: Visual card layout
+           ENHANCEMENT: Converted from bullet list
+           ======================================== */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .advantage-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .advantage-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(90, 138, 166, 0.15);
+        }
+
+        .advantage-card .icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .advantage-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
         /* Color contrast validation */
         /* Primary text on light: #333 on #f8f9fa = 12:1 ratio ✓ */
         /* White text on primary: white on #5A8AA6 = 8.5:1 ratio ✓ */
@@ -617,18 +689,22 @@
             <h3>Key Metrics Overview</h3>
             <div class="metrics-grid">
                 <div class="metric">
+                    <div class="metric-icon"><i class="ph ph-graph"></i></div>
                     <div class="value">5</div>
                     <div class="label">Strategic Areas</div>
                 </div>
                 <div class="metric">
+                    <div class="metric-icon"><i class="ph ph-trending-up"></i></div>
                     <div class="value">100%</div>
                     <div class="label">Growth Potential</div>
                 </div>
                 <div class="metric">
+                    <div class="metric-icon"><i class="ph ph-calendar"></i></div>
                     <div class="value">6-12</div>
                     <div class="label">Month Timeline</div>
                 </div>
                 <div class="metric">
+                    <div class="metric-icon"><i class="ph ph-currency-dollar"></i></div>
                     <div class="value">$0</div>
                     <div class="label">Initial Investment</div>
                 </div>
@@ -669,26 +745,31 @@
             <h3>Critical Areas Identified</h3>
             <table>
                 <tr>
+                    <th></th>
                     <th>Area</th>
                     <th>Current State</th>
                     <th>Priority</th>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-globe"></i></td>
                     <td><strong>Digital Presence</strong></td>
                     <td>Needs optimization</td>
                     <td class="status-critical">HIGH</td>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-pencil-simple"></i></td>
                     <td><strong>Content Strategy</strong></td>
                     <td>Opportunity for enhancement</td>
                     <td class="status-warning">MEDIUM</td>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-target"></i></td>
                     <td><strong>Market Positioning</strong></td>
                     <td>Requires refinement</td>
                     <td class="status-critical">HIGH</td>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-gear"></i></td>
                     <td><strong>Operational Efficiency</strong></td>
                     <td>Room for improvement</td>
                     <td class="status-warning">MEDIUM</td>
@@ -721,12 +802,30 @@
 
             <h3>Competitive Advantages</h3>
             <p>Your organization possesses unique strengths that can be leveraged for market dominance:</p>
-            <ul>
-                <li>Direct access to decision-makers and authentic expertise</li>
-                <li>Personalized service delivery model</li>
-                <li>Strong reputation and customer loyalty</li>
-                <li>Flexibility to adapt and innovate quickly</li>
-            </ul>
+
+            <!-- ENHANCEMENT: Convert advantages list to visual icon cards -->
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="icon"><i class="ph ph-person-check"></i></div>
+                    <h4>Expert Access</h4>
+                    <p>Direct access to decision-makers and authentic expertise</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="icon"><i class="ph ph-handshake"></i></div>
+                    <h4>Personalized Service</h4>
+                    <p>Personalized service delivery model tailored to needs</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="icon"><i class="ph ph-shield-check"></i></div>
+                    <h4>Strong Reputation</h4>
+                    <p>Strong reputation and deep customer loyalty</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="icon"><i class="ph ph-lightning-bolt"></i></div>
+                    <h4>Quick Innovation</h4>
+                    <p>Flexibility to adapt and innovate rapidly</p>
+                </div>
+            </div>
         </section>
 
         <!-- Technical Section -->
@@ -755,26 +854,31 @@
             <h3>Recommended Improvements</h3>
             <table>
                 <tr>
+                    <th></th>
                     <th>Area</th>
                     <th>Recommendation</th>
                     <th>Impact</th>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-globe"></i></td>
                     <td>Website</td>
                     <td>Comprehensive redesign and optimization</td>
                     <td class="status-success">High</td>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-chart-line"></i></td>
                     <td>SEO</td>
                     <td>Keyword strategy and content development</td>
                     <td class="status-success">High</td>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-chat-circle-dots"></i></td>
                     <td>Social Media</td>
                     <td>Consistent posting and engagement strategy</td>
                     <td class="status-warning">Medium</td>
                 </tr>
                 <tr>
+                    <td class="table-icon"><i class="ph ph-chart-bar"></i></td>
                     <td>Analytics</td>
                     <td>Setup tracking and reporting systems</td>
                     <td class="status-warning">Medium</td>
