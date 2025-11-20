@@ -7,8 +7,8 @@
     <meta name="description" content="Digital diagnostic report for Floor Coverings International Houston Heights by Poppy Marketing and Consulting">
     <title>Digital Diagnostic Report - Poppy Marketing</title>
 
-    <!-- ICONS: Phosphor Icons CDN for professional iconography -->
-    <link rel="stylesheet" href="https://unpkg.com/phosphor-icons/dist/phosphor.css">
+    <!-- ICONS: Google Material Icons CDN for professional iconography -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <style>
         /* ========================================
@@ -203,6 +203,26 @@
             align-items: center;
             justify-content: center;
             margin-bottom: var(--spacing-xs);
+        }
+
+        /* Material Icons styling for proper rendering */
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 1.5rem;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: 'liga';
+            color: var(--primary);
         }
 
         .finding-card h4 { margin-top: 0; margin-bottom: 0.8rem; }
@@ -640,6 +660,173 @@
             margin: 0;
         }
 
+        /* ========================================
+           DATA VISUALIZATIONS: Assessment Dashboard
+           ENHANCEMENT: Progress bars for key areas
+           ======================================== */
+        .assessment-dashboard {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .assessment-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            transition: var(--transition);
+        }
+
+        .assessment-item:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .assessment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .assessment-label {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .assessment-value {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e8e8e8;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 0.6rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 6px;
+        }
+
+        .assessment-meta {
+            font-size: 0.8rem;
+            color: #666;
+            text-align: right;
+        }
+
+        /* ========================================
+           COMPETITIVE POSITIONING MATRIX: SVG Chart
+           ENHANCEMENT: 2x2 quadrant visualization
+           ======================================== */
+        .positioning-matrix {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .matrix-chart {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .matrix-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-sm);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           ROADMAP TIMELINE: SVG Timeline Visualization
+           ENHANCEMENT: 5-phase implementation timeline
+           ======================================== */
+        .roadmap-timeline {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .timeline-chart {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: var(--spacing-md);
+            min-height: 220px;
+        }
+
+        .timeline-legend {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .timeline-legend-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .timeline-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Responsive timeline scaling */
+        @media (max-width: 767px) {
+            .timeline-chart {
+                min-height: 280px;
+            }
+
+            .timeline-legend-item {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 479px) {
+            .timeline-chart {
+                min-height: 320px;
+            }
+
+            .timeline-legend-item {
+                font-size: 0.75rem;
+            }
+        }
+
         /* Color contrast validation */
         /* Primary text on light: #333 on #f8f9fa = 12:1 ratio ✓ */
         /* White text on primary: white on #5A8AA6 = 8.5:1 ratio ✓ */
@@ -689,22 +876,22 @@
             <h3>Key Metrics Overview</h3>
             <div class="metrics-grid">
                 <div class="metric">
-                    <div class="metric-icon"><i class="ph ph-graph"></i></div>
+                    <div class="metric-icon"><span class="material-icons">bar_chart</span></div>
                     <div class="value">5</div>
                     <div class="label">Strategic Areas</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-icon"><i class="ph ph-trending-up"></i></div>
+                    <div class="metric-icon"><span class="material-icons">trending_up</span></div>
                     <div class="value">100%</div>
                     <div class="label">Growth Potential</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-icon"><i class="ph ph-calendar"></i></div>
+                    <div class="metric-icon"><span class="material-icons">calendar_month</span></div>
                     <div class="value">6-12</div>
                     <div class="label">Month Timeline</div>
                 </div>
                 <div class="metric">
-                    <div class="metric-icon"><i class="ph ph-currency-dollar"></i></div>
+                    <div class="metric-icon"><span class="material-icons">attach_money</span></div>
                     <div class="value">$0</div>
                     <div class="label">Initial Investment</div>
                 </div>
@@ -714,17 +901,17 @@
             <h3 id="findings">Three Key Areas to Address</h3>
             <div class="key-findings">
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-chart-bar"></i></div>
+                    <div class="icon"><span class="material-icons">bar_chart</span></div>
                     <h4>Digital Visibility</h4>
                     <p>Analyze current search rankings, traffic patterns, and online presence across all channels.</p>
                 </div>
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-brain"></i></div>
+                    <div class="icon"><span class="material-icons">psychology</span></div>
                     <h4>Market Positioning</h4>
                     <p>Evaluate competitive landscape and identify opportunities for differentiation and authority.</p>
                 </div>
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-warning"></i></div>
+                    <div class="icon"><span class="material-icons">error</span></div>
                     <h4>Operational Challenges</h4>
                     <p>Identify internal and external barriers affecting growth and customer acquisition.</p>
                 </div>
@@ -742,6 +929,54 @@
                 <strong>Key Insight:</strong> The foundation is strong. With strategic optimization across key areas, rapid growth is achievable within 6-12 months.
             </div>
 
+            <!-- DATA VISUALIZATION: Area Assessment Dashboard -->
+            <h3>Performance Assessment Dashboard</h3>
+            <div class="assessment-dashboard">
+                <div class="assessment-item">
+                    <div class="assessment-header">
+                        <span class="assessment-label">Digital Presence</span>
+                        <span class="assessment-value">40%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%; background: linear-gradient(90deg, #e74c3c, #e67e22);"></div>
+                    </div>
+                    <div class="assessment-meta">Current: 40% | Target: 95%</div>
+                </div>
+
+                <div class="assessment-item">
+                    <div class="assessment-header">
+                        <span class="assessment-label">Content Strategy</span>
+                        <span class="assessment-value">55%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 55%; background: linear-gradient(90deg, #f39c12, #27ae60);"></div>
+                    </div>
+                    <div class="assessment-meta">Current: 55% | Target: 90%</div>
+                </div>
+
+                <div class="assessment-item">
+                    <div class="assessment-header">
+                        <span class="assessment-label">Market Positioning</span>
+                        <span class="assessment-value">35%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 35%; background: linear-gradient(90deg, #e74c3c, #c0392b);"></div>
+                    </div>
+                    <div class="assessment-meta">Current: 35% | Target: 85%</div>
+                </div>
+
+                <div class="assessment-item">
+                    <div class="assessment-header">
+                        <span class="assessment-label">Operational Efficiency</span>
+                        <span class="assessment-value">60%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%; background: linear-gradient(90deg, #f39c12, #27ae60);"></div>
+                    </div>
+                    <div class="assessment-meta">Current: 60% | Target: 88%</div>
+                </div>
+            </div>
+
             <h3>Critical Areas Identified</h3>
             <table>
                 <tr>
@@ -751,25 +986,25 @@
                     <th>Priority</th>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-globe"></i></td>
+                    <td class="table-icon"><span class="material-icons">public</span></td>
                     <td><strong>Digital Presence</strong></td>
                     <td>Needs optimization</td>
                     <td class="status-critical">HIGH</td>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-pencil-simple"></i></td>
+                    <td class="table-icon"><span class="material-icons">edit</span></td>
                     <td><strong>Content Strategy</strong></td>
                     <td>Opportunity for enhancement</td>
                     <td class="status-warning">MEDIUM</td>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-target"></i></td>
+                    <td class="table-icon"><span class="material-icons">target</span></td>
                     <td><strong>Market Positioning</strong></td>
                     <td>Requires refinement</td>
                     <td class="status-critical">HIGH</td>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-gear"></i></td>
+                    <td class="table-icon"><span class="material-icons">settings</span></td>
                     <td><strong>Operational Efficiency</strong></td>
                     <td>Room for improvement</td>
                     <td class="status-warning">MEDIUM</td>
@@ -784,19 +1019,62 @@
             <h3>Market Overview</h3>
             <div class="key-findings">
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-store"></i></div>
+                    <div class="icon"><span class="material-icons">store</span></div>
                     <h4>Direct Competitors</h4>
                     <p>Established players with strong market presence but traditional approaches.</p>
                 </div>
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-palette"></i></div>
+                    <div class="icon"><span class="material-icons">palette</span></div>
                     <h4>Niche Specialists</h4>
                     <p>Focused competitors capturing specific customer segments effectively.</p>
                 </div>
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-warehouse"></i></div>
+                    <div class="icon"><span class="material-icons">warehouse</span></div>
                     <h4>Market Threats</h4>
                     <p>Larger entities with significant resources but limited personalization.</p>
+                </div>
+            </div>
+
+            <!-- DATA VISUALIZATION: Competitive Positioning Matrix -->
+            <h3>Competitive Positioning Matrix</h3>
+            <div class="positioning-matrix">
+                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="matrix-chart">
+                    <!-- Axes -->
+                    <line x1="200" y1="50" x2="200" y2="350" stroke="#ccc" stroke-width="2"/>
+                    <line x1="50" y1="200" x2="350" y2="200" stroke="#ccc" stroke-width="2"/>
+
+                    <!-- Quadrant labels -->
+                    <text x="120" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Premium Services</text>
+                    <text x="280" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Market Leaders</text>
+                    <text x="120" y="330" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Budget Focused</text>
+                    <text x="280" y="330" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">Value Players</text>
+
+                    <!-- Axis labels -->
+                    <text x="370" y="210" font-size="12" fill="#666">Features/Service Quality →</text>
+                    <text x="60" y="35" font-size="12" fill="#666">↑ Pricing</text>
+
+                    <!-- Competitor positions as circles -->
+                    <!-- Your Organization - Top right (Premium + High Quality) -->
+                    <circle cx="290" cy="140" r="25" fill="#5A8AA6" opacity="0.8"/>
+                    <text x="290" y="145" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Your Org</text>
+
+                    <!-- Direct Competitors - Top left (Premium but traditional) -->
+                    <circle cx="130" cy="120" r="20" fill="#e74c3c" opacity="0.6"/>
+                    <text x="130" y="125" text-anchor="middle" font-size="10" font-weight="bold" fill="white">Competitors</text>
+
+                    <!-- Niche Specialists - Right middle (High quality, variable price) -->
+                    <circle cx="310" cy="200" r="18" fill="#f39c12" opacity="0.6"/>
+                    <text x="310" y="207" text-anchor="middle" font-size="10" fill="white">Specialists</text>
+
+                    <!-- Big Box - Bottom left (Budget, basic service) -->
+                    <circle cx="110" cy="280" r="22" fill="#95a5a6" opacity="0.6"/>
+                    <text x="110" y="287" text-anchor="middle" font-size="10" fill="white">Big Box</text>
+                </svg>
+                <div class="matrix-legend">
+                    <div class="legend-item"><span class="legend-color" style="background: #5A8AA6;"></span> Your Organization (Premium + Quality Leader)</div>
+                    <div class="legend-item"><span class="legend-color" style="background: #e74c3c;"></span> Direct Competitors (High Price, Traditional)</div>
+                    <div class="legend-item"><span class="legend-color" style="background: #f39c12;"></span> Niche Specialists (Quality Focus)</div>
+                    <div class="legend-item"><span class="legend-color" style="background: #95a5a6;"></span> Big Box Retailers (Low Price, Basic)</div>
                 </div>
             </div>
 
@@ -806,22 +1084,22 @@
             <!-- ENHANCEMENT: Convert advantages list to visual icon cards -->
             <div class="advantages-grid">
                 <div class="advantage-card">
-                    <div class="icon"><i class="ph ph-person-check"></i></div>
+                    <div class="icon"><span class="material-icons">person_check</span></div>
                     <h4>Expert Access</h4>
                     <p>Direct access to decision-makers and authentic expertise</p>
                 </div>
                 <div class="advantage-card">
-                    <div class="icon"><i class="ph ph-handshake"></i></div>
+                    <div class="icon"><span class="material-icons">handshake</span></div>
                     <h4>Personalized Service</h4>
                     <p>Personalized service delivery model tailored to needs</p>
                 </div>
                 <div class="advantage-card">
-                    <div class="icon"><i class="ph ph-shield-check"></i></div>
+                    <div class="icon"><span class="material-icons">shield</span></div>
                     <h4>Strong Reputation</h4>
                     <p>Strong reputation and deep customer loyalty</p>
                 </div>
                 <div class="advantage-card">
-                    <div class="icon"><i class="ph ph-lightning-bolt"></i></div>
+                    <div class="icon"><span class="material-icons">flash_on</span></div>
                     <h4>Quick Innovation</h4>
                     <p>Flexibility to adapt and innovate rapidly</p>
                 </div>
@@ -835,17 +1113,17 @@
             <h3>Key Issues to Address</h3>
             <div class="key-findings">
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-traffic-cone"></i></div>
+                    <div class="icon"><span class="material-icons">warning</span></div>
                     <h4>Digital Infrastructure</h4>
                     <p>Website, SEO, and online visibility gaps require immediate attention.</p>
                 </div>
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-clock"></i></div>
+                    <div class="icon"><span class="material-icons">schedule</span></div>
                     <h4>Content Management</h4>
                     <p>Inconsistent messaging and outdated information across platforms.</p>
                 </div>
                 <div class="finding-card">
-                    <div class="icon"><i class="ph ph-van"></i></div>
+                    <div class="icon"><span class="material-icons">local_shipping</span></div>
                     <h4>Customer Engagement</h4>
                     <p>Limited touchpoints and engagement strategies need expansion.</p>
                 </div>
@@ -860,25 +1138,25 @@
                     <th>Impact</th>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-globe"></i></td>
+                    <td class="table-icon"><span class="material-icons">public</span></td>
                     <td>Website</td>
                     <td>Comprehensive redesign and optimization</td>
                     <td class="status-success">High</td>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-chart-line"></i></td>
+                    <td class="table-icon"><span class="material-icons">trending_up</span></td>
                     <td>SEO</td>
                     <td>Keyword strategy and content development</td>
                     <td class="status-success">High</td>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-chat-circle-dots"></i></td>
+                    <td class="table-icon"><span class="material-icons">chat</span></td>
                     <td>Social Media</td>
                     <td>Consistent posting and engagement strategy</td>
                     <td class="status-warning">Medium</td>
                 </tr>
                 <tr>
-                    <td class="table-icon"><i class="ph ph-chart-bar"></i></td>
+                    <td class="table-icon"><span class="material-icons">bar_chart</span></td>
                     <td>Analytics</td>
                     <td>Setup tracking and reporting systems</td>
                     <td class="status-warning">Medium</td>
@@ -892,11 +1170,94 @@
 
             <p>A strategic progression to strengthen your digital presence and market position:</p>
 
+            <!-- DATA VISUALIZATION: Roadmap Timeline -->
+            <h3>Implementation Timeline</h3>
+            <div class="roadmap-timeline">
+                <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg" class="timeline-chart" preserveAspectRatio="xMidYMid meet">
+                    <!-- Timeline axis -->
+                    <line x1="80" y1="100" x2="920" y2="100" stroke="#ccc" stroke-width="3"/>
+
+                    <!-- Time markers and phases -->
+                    <!-- Phase 1: Weeks 0-4 (Foundation) -->
+                    <g>
+                        <circle cx="140" cy="100" r="18" fill="#e74c3c" opacity="0.8"/>
+                        <text x="140" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="white">1</text>
+                        <text x="140" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Foundation</text>
+                        <text x="140" y="155" text-anchor="middle" font-size="10" fill="#666">Weeks 0-4</text>
+                    </g>
+
+                    <!-- Phase 2: Weeks 5-12 (Growth) -->
+                    <g>
+                        <circle cx="340" cy="100" r="18" fill="#f39c12" opacity="0.8"/>
+                        <text x="340" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="white">2</text>
+                        <text x="340" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Growth</text>
+                        <text x="340" y="155" text-anchor="middle" font-size="10" fill="#666">Weeks 5-12</text>
+                    </g>
+
+                    <!-- Phase 3: Weeks 13-16 (Optimization) -->
+                    <g>
+                        <circle cx="540" cy="100" r="18" fill="#3498db" opacity="0.8"/>
+                        <text x="540" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="white">3</text>
+                        <text x="540" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Optimize</text>
+                        <text x="540" y="155" text-anchor="middle" font-size="10" fill="#666">Weeks 13-16</text>
+                    </g>
+
+                    <!-- Phase 4: Weeks 17-20 (Leadership) -->
+                    <g>
+                        <circle cx="740" cy="100" r="18" fill="#27ae60" opacity="0.8"/>
+                        <text x="740" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="white">4</text>
+                        <text x="740" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Leadership</text>
+                        <text x="740" y="155" text-anchor="middle" font-size="10" fill="#666">Weeks 17-20</text>
+                    </g>
+
+                    <!-- Phase 5: Weeks 21-24 (Dominance) -->
+                    <g>
+                        <circle cx="860" cy="100" r="18" fill="#5A8AA6" opacity="0.9"/>
+                        <text x="860" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="white">5</text>
+                        <text x="860" y="140" text-anchor="middle" font-size="11" font-weight="bold" fill="#333">Dominance</text>
+                        <text x="860" y="155" text-anchor="middle" font-size="10" fill="#666">Weeks 21-24</text>
+                    </g>
+
+                    <!-- Connecting arrows between phases -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                            <polygon points="0 0, 10 3, 0 6" fill="#ccc"/>
+                        </marker>
+                    </defs>
+                    <line x1="162" y1="100" x2="318" y2="100" stroke="#ccc" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="362" y1="100" x2="518" y2="100" stroke="#ccc" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="562" y1="100" x2="718" y2="100" stroke="#ccc" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="762" y1="100" x2="838" y2="100" stroke="#ccc" stroke-width="2" marker-end="url(#arrowhead)"/>
+                </svg>
+                <div class="timeline-legend">
+                    <div class="timeline-legend-item">
+                        <span class="timeline-color" style="background: #e74c3c;"></span>
+                        <strong>Phase 1 (Foundation):</strong> Assess current state, define objectives, establish baseline metrics
+                    </div>
+                    <div class="timeline-legend-item">
+                        <span class="timeline-color" style="background: #f39c12;"></span>
+                        <strong>Phase 2 (Growth):</strong> Implement initial improvements, launch campaigns, build momentum
+                    </div>
+                    <div class="timeline-legend-item">
+                        <span class="timeline-color" style="background: #3498db;"></span>
+                        <strong>Phase 3 (Optimize):</strong> Refine strategies, scale successful initiatives, optimize performance
+                    </div>
+                    <div class="timeline-legend-item">
+                        <span class="timeline-color" style="background: #27ae60;"></span>
+                        <strong>Phase 4 (Leadership):</strong> Establish market leadership, strengthen competitive position
+                    </div>
+                    <div class="timeline-legend-item">
+                        <span class="timeline-color" style="background: #5A8AA6;"></span>
+                        <strong>Phase 5 (Dominance):</strong> Maintain market advantage, continuous improvement, sustainable growth
+                    </div>
+                </div>
+            </div>
+
             <div class="roadmap">
                 <div class="roadmap-item">
                     <div class="roadmap-phase">
                         <div>
-                            <i class="ph ph-star" style="font-size: 2rem;"></i>
+                            <span class="material-icons" style="font-size: 2rem;">star</span>
                             <div>Step 1</div>
                         </div>
                     </div>
@@ -909,7 +1270,7 @@
                 <div class="roadmap-item">
                     <div class="roadmap-phase">
                         <div>
-                            <i class="ph ph-map-pin" style="font-size: 2rem;"></i>
+                            <span class="material-icons" style="font-size: 2rem;">location_on</span>
                             <div>Step 2</div>
                         </div>
                     </div>
@@ -922,7 +1283,7 @@
                 <div class="roadmap-item">
                     <div class="roadmap-phase">
                         <div>
-                            <i class="ph ph-star-half" style="font-size: 2rem;"></i>
+                            <span class="material-icons" style="font-size: 2rem;">star_half</span>
                             <div>Step 3</div>
                         </div>
                     </div>
@@ -935,7 +1296,7 @@
                 <div class="roadmap-item">
                     <div class="roadmap-phase">
                         <div>
-                            <i class="ph ph-gear" style="font-size: 2rem;"></i>
+                            <span class="material-icons" style="font-size: 2rem;">settings</span>
                             <div>Step 4</div>
                         </div>
                     </div>
@@ -948,7 +1309,7 @@
                 <div class="roadmap-item">
                     <div class="roadmap-phase">
                         <div>
-                            <i class="ph ph-target" style="font-size: 2rem;"></i>
+                            <span class="material-icons" style="font-size: 2rem;">target</span>
                             <div>Step 5</div>
                         </div>
                     </div>
